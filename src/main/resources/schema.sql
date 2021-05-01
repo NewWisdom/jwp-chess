@@ -6,13 +6,13 @@ CREATE TABLE IF NOT EXISTS `chess_game` (
   `title` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) );
-
-CREATE TABLE IF NOT EXISTS `room` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-);
+--
+-- CREATE TABLE IF NOT EXISTS `room` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `title` varchar(45) NOT NULL,
+--   `password` varchar(100) NOT NULL,
+--   PRIMARY KEY (`id`)
+-- );
 
 -- CREATE TABLE `chess_game` (
 --   `id` bigint NOT NULL AUTO_INCREMENT,
