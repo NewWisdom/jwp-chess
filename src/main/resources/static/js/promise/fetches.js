@@ -1,5 +1,5 @@
 export {getFetch, postFetch, deleteFetch}
-const BASE_URL = location.href
+const BASE_URL = "http://3.34.178.206:8080/"
 
 function getFetch(url) {
     return fetch(`${BASE_URL}${url}`).then(data => {
