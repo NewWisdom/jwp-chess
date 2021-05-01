@@ -29,7 +29,7 @@ public class JdbcTemplateChessDao implements ChessDao {
     public JdbcTemplateChessDao(JdbcTemplate jdbcTemplate, DataSource dataSource) {
         this.jdbcTemplate = jdbcTemplate;
         this.insertAction = new SimpleJdbcInsert(dataSource)
-                .withTableName("CHESSGAME")
+                .withTableName("chess_game")
                 .usingGeneratedKeyColumns("id");
     }
 
@@ -48,7 +48,7 @@ public class JdbcTemplateChessDao implements ChessDao {
     public Optional<ChessGame> findById(long id) {
         String query =
                 "SELECT * " +
-                        "FROM CHESSGAME " +
+                        "FROM chess_game " +
                         "WHERE id = ?";
 
         return Optional.ofNullable(jdbcTemplate.queryForObject(query, chessGameRowMapper, id));
@@ -58,7 +58,7 @@ public class JdbcTemplateChessDao implements ChessDao {
     @Override
     public void update(ChessGame entity) {
         String query =
-                "UPDATE CHESSGAME " +
+                "UPDATE chess_game " +
                         "SET pieces = ?, running = ? , next_turn = ?" +
                         "WHERE id = ?";
 
@@ -70,7 +70,7 @@ public class JdbcTemplateChessDao implements ChessDao {
     public List<ChessGame> findAllOnRunning() {
         String query =
                 "SELECT * " +
-                        "FROM CHESSGAME " +
+                        "FROM chess_game " +
                         "WHERE running = ?";
 
         return jdbcTemplate.query(query, chessGameRowMapper, true);
@@ -78,7 +78,7 @@ public class JdbcTemplateChessDao implements ChessDao {
 
     @Override
     public void delete(long id) {
-        String query = "DELETE FROM CHESSGAME " +
+        String query = "DELETE FROM chess_game " +
                 "WHERE id = ?";
 
         jdbcTemplate.update(query, id);
