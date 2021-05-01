@@ -1,6 +1,5 @@
 export {getFetch, postFetch, deleteFetch}
-const BASE_PORT = "8080";
-const BASE_URL = `http://localhost:${BASE_PORT}`;
+const BASE_URL = location.href
 
 function getFetch(url) {
     return fetch(`${BASE_URL}${url}`).then(data => {
